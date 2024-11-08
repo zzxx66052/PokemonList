@@ -1,11 +1,15 @@
 import styled from "styled-components"; // styled-components import
 
 const PokemonCard = ({ pokemon, addPokemon }) => {
+  const spreadId = (id) => {
+    return String(id).padStart(3, "0");
+  };
+
   return (
     <Card>
       <CardImage src={pokemon.img_url} alt={pokemon.korean_name} />
       <CardTitle>{pokemon.korean_name}</CardTitle>
-      <CardNumber> No.{pokemon.id}</CardNumber>
+      <CardNumber> No.{spreadId(pokemon.id)}</CardNumber>
       <AddButton onClick={() => addPokemon(pokemon)}>추가</AddButton>
     </Card>
   );
@@ -52,6 +56,7 @@ const AddButton = styled.button`
   border: none;
   padding: 5px 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s;

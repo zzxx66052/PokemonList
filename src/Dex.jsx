@@ -9,15 +9,17 @@ const Dex = () => {
 
   // 포켓몬을 선택하는 함수
   const addPokemon = (pokemon) => {
-    if (selectedPokemons.length <= 6) {
+    if (selectedPokemons.some((p) => p.id === pokemon.id)) {
+      alert("이 포켓몬은 이미 선택되었습니다.");
+      return;
+    }
+
+    if (selectedPokemons.length < 6) {
       // 포켓몬을 추가
       setSelectedPokemons([...selectedPokemons, pokemon]);
     } else {
       // 이미 6마리가 선택되었으면 알림
       alert("최대 6마리의 포켓몬만 선택할 수 있습니다.");
-    }
-    if (selectedPokemons.some((p) => p.id === pokemon.id)) {
-      alert("이 포켓몬은 이미 선택되었습니다.");
     }
   };
 
