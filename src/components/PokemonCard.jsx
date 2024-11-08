@@ -22,12 +22,11 @@ const Card = styled.div`
   display: flex;
   flex-wrep: wrap;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: #d4f6ff;
   justify-content: center;
   align-items: center;
   margin: 40px 10px 20px 10px;
   border-radius: 10px;
-  opacity: 90%;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
 
   &:hover {

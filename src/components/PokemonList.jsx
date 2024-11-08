@@ -19,7 +19,7 @@ export default PokemonList;
 
 const AllPokemonList = styled.div`
   display: flex;
-  background-color: #1e1e1e;
+  background-color: #ffffff;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;

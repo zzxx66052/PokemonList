@@ -13,6 +13,7 @@ const Dashboard = ({ selectedPokemons, removePokemon }) => {
         {selectedPokemons.map((pokemon) => (
           <Main key={pokemon.id}>
             <img src={pokemon.img_url} alt={pokemon.korean_name} />
+            <span>{pokemon.korean_name}</span>
             <CardNumber> No.{spreadId(pokemon.id)} </CardNumber>
             <button onClick={() => removePokemon(pokemon.id)}>삭제</button>
           </Main>
@@ -27,29 +28,32 @@ export default Dashboard;
 // Styled Components 정의
 const DashboardContainer = styled.div`
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #fff;
   color: #333;
   padding: 20px;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 20px;
+  margin: 20px;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   margin: 0;
+  font-weight: bold;
   text-align: center;
 `;
 
 const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap; /* 여러 행으로 배치되도록 설정 */
-  justify-content: space-evenly; /* 가로로 균등하게 배치 */
-  gap: 20px; /* Main 카드 간의 간격 */
+  justify-content: center; /* 가로로 균등하게 배치 */
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 20px;
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: #d4f6ff;
   justify-content: center;
   align-items: center;
   width: 100px;
@@ -68,19 +72,25 @@ const Main = styled.div`
     border-radius: 5px;
   }
 
-  button {
+  span {
+    font-size: 15px;
+    font-weight: 700;
     margin-top: 10px;
-    background-color: #e74c3c;
+  }
+
+  button {
+    background-color: #fa4032;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s;
 
     &:hover {
-      background-color: #c0392b;
+      background-color: #fa812f;
     }
   }
 `;
