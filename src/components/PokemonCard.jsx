@@ -25,8 +25,9 @@ const Card = styled.div`
   background-color: #f7f7f7;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 40px 10px 20px 10px;
   border-radius: 10px;
+  opacity: 90%;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
 
   &:hover {

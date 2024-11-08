@@ -1,8 +1,8 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Dex from "./Dex";
-import Detail from "./Detail";
+import Home from "./pages/Home";
+import Dex from "./pages/Dex";
+import Detail from "./pages/Detail";
 
 const App = () => {
   return (

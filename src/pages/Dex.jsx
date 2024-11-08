@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Dashboard from "./components/Dashboard";
-import PokemonList from "./components/PokemonList";
-import MOCK_DATA from "./MockData";
+import Dashboard from "../components/DashBoard";
+import PokemonList from "../components/PokemonList";
+import MOCK_DATA from "../MockData";
 
 const Dex = () => {
   // 선택된 포켓몬들을 관리하는 상태
