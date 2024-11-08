@@ -22,6 +22,7 @@ export default Home;
 
 const homeContainter = {
   display: "flex",
+  flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   height: "100vh",
@@ -31,15 +32,16 @@ const homeContainter = {
 
 const logoImageStyle = {
   width: "600px",
+  marginBottom: "20px",
 };
 
 const buttonStyle = {
   padding: "10px 20px",
   fontSize: "18px",
+  fontWeight: "700",
   backgroundColor: "red",
   border: "none",
-  borderRadius: "5px",
+  borderRadius: "10px",
   cursor: "pointer",
   color: "white",
-  transition: "background-color 0.3s",
 };

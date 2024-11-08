@@ -26,7 +26,7 @@ const Dex = () => {
   // 포켓몬을 삭제하는 함수
   const onRemovePokemon = (pokemonToRemove) => {
     setSelectedPokemons(
-      selectedPokemons.filter((pokemon) => pokemon.id !== pokemonToRemove.id)
+      selectedPokemons.filter((pokemon) => pokemon.id !== pokemonToRemove)
     );
   };
 

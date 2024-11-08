@@ -2,8 +2,6 @@ import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = ({ pokemonData, addPokemon }) => {
-  console.log(Array.isArray(pokemonData));
-
   return (
     <AllPokemonList>
       <h1>포켓몬 목록</h1>

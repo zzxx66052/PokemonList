@@ -13,7 +13,7 @@ const DashboardContainer = styled.div`
 
 const Header = styled.header`
   text-align: center;
-  background-color: #4caf50;
+  background-color: #333;
   color: white;
   padding: 10px 0;
 `;
@@ -24,10 +24,9 @@ const Title = styled.h2`
 
 const Main = styled.div`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
 `;
 
@@ -37,17 +36,16 @@ const Dashboard = ({ selectedPokemons, removePokemon }) => {
       <Header>
         <Title>포켓몬 도감</Title>
       </Header>
-      <Main>
-        <ul>
-          {selectedPokemons.map((pokemon) => (
-            <li key={pokemon.id}>
-              <img src={pokemon.img_url} />
-              {pokemon.Korean_name}
-              <button onClick={() => removePokemon(pokemon.id)}>삭제</button>
-            </li>
-          ))}
-        </ul>
-      </Main>
+      {selectedPokemons.map((pokemon) => (
+        <Main
+          key={pokemon.id}
+          src={pokemon.img_url}
+          alt={pokemon.korean_name}
+          pokemon={pokemon}
+        >
+          <button onClick={() => removePokemon(pokemon.id)}>삭제</button>
+        </Main>
+      ))}
     </DashboardContainer>
   );
 };
