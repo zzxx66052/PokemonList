@@ -1,6 +1,9 @@
 import styled from "styled-components"; // styled-components import
+import { usePokemon } from "../context/PokemonContext";
 
-const PokemonCard = ({ pokemon, addPokemon }) => {
+const PokemonCard = ({ pokemon }) => {
+  const { addPokemon } = usePokemon();
+
   const spreadId = (id) => {
     return String(id).padStart(3, "0");
   };
@@ -10,7 +13,15 @@ const PokemonCard = ({ pokemon, addPokemon }) => {
       <CardImage src={pokemon.img_url} alt={pokemon.korean_name} />
       <CardTitle>{pokemon.korean_name}</CardTitle>
       <CardNumber> No.{spreadId(pokemon.id)}</CardNumber>
-      <AddButton onClick={() => addPokemon(pokemon)}>추가</AddButton>
+      <AddButton
+        onClick={(event) => {
+          event.stopPropagation();
+          event.preventDefault();
+          addPokemon(pokemon);
+        }}
+      >
+        추가
+      </AddButton>
     </Card>
   );
 };
@@ -25,7 +36,7 @@ const Card = styled.div`
   background-color: #d4f6ff;
   justify-content: center;
   align-items: center;
-  margin: 40px 10px 20px 10px;
+  margin: 20px 20px 20px 20px;
   border-radius: 10px;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
 

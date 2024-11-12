@@ -1,44 +1,32 @@
-import { useState } from "react";
 import Dashboard from "../components/DashBoard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../MockData";
+import styled from "styled-components";
+import { usePokemon } from "../context/PokemonContext";
 
 const Dex = () => {
-  // 선택된 포켓몬들을 관리하는 상태
-  const [selectedPokemons, setSelectedPokemons] = useState([]);
-
-  // 포켓몬을 선택하는 함수
-  const addPokemon = (pokemon) => {
-    if (selectedPokemons.some((p) => p.id === pokemon.id)) {
-      alert("이 포켓몬은 이미 선택되었습니다.");
-      return;
-    }
-
-    if (selectedPokemons.length < 6) {
-      // 포켓몬을 추가
-      setSelectedPokemons([...selectedPokemons, pokemon]);
-    } else {
-      // 이미 6마리가 선택되었으면 알림
-      alert("최대 6마리의 포켓몬만 선택할 수 있습니다.");
-    }
-  };
-
-  // 포켓몬을 삭제하는 함수
-  const onRemovePokemon = (pokemonToRemove) => {
-    setSelectedPokemons(
-      selectedPokemons.filter((pokemon) => pokemon.id !== pokemonToRemove)
-    );
-  };
+  const { selectedPokemons, onRemovePokemon } = usePokemon();
 
   return (
-    <div>
+    <BodyRoot>
       <Dashboard
         selectedPokemons={selectedPokemons}
         removePokemon={onRemovePokemon}
       />
-      <PokemonList pokemonData={MOCK_DATA} addPokemon={addPokemon} />
-    </div>
+      <PokemonList pokemonData={MOCK_DATA} />
+    </BodyRoot>
   );
 };
 
 export default Dex;
+
+const BodyRoot = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+`;

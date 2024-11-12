@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { Link } from "react-router-dom";
+import { usePokemon } from "../context/PokemonContext";
 
-const PokemonList = ({ pokemonData, addPokemon }) => {
+const PokemonList = ({ pokemonData }) => {
+  const { addPokemon } = usePokemon();
+
   return (
     <AllPokemonList>
-      {pokemonData.map((newPokemon) => (
-        <PokemonCard
-          key={newPokemon.id}
-          pokemon={newPokemon}
-          addPokemon={addPokemon}
-        />
-      ))}
+      {pokemonData.map((newPokemon) => {
+        return (
+          <Link to={`/pokemon/${newPokemon.id}`} key={newPokemon.id}>
+            <PokemonCard pokemon={newPokemon} addPokemon={addPokemon} />
+          </Link>
+        );
+      })}
     </AllPokemonList>
   );
 };
@@ -23,8 +27,9 @@ const AllPokemonList = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: center;
-  margin: 20px;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 10px;
   gap: 20px;
   border-radius: 20px;
 `;
