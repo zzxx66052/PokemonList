@@ -59,6 +59,9 @@ const CardTitle = styled.h3`
 
 const CardNumber = styled.h5`
   font-size: 15px;
+  color: gray;
+  margin-top: 10px;
+  margin-bottom: 5px;
 `;
 
 const AddButton = styled.button`

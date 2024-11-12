@@ -33,7 +33,10 @@ const PokemonDetail = () => {
       if (isPokemonAdded) {
         // 이미 추가된 포켓몬이라면 알림 표시
         toast.error(
-          `${pokemon.korean_name}은 이미 포켓몬 도감에 추가되었습니다!`
+          `${pokemon.korean_name}은 이미 포켓몬 도감에 추가되었습니다!`,
+          {
+            autoClose: 2500,
+          }
         );
       } else {
         // 포켓몬 추가하고 페이지 뒤로 가기
