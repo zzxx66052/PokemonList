@@ -13,12 +13,25 @@ const Dashboard = () => {
       <Title>포켓몬 도감</Title>
 
       <MainContainer>
-        {selectedPokemons.map((pokemon) => (
-          <Main key={pokemon.id}>
-            <img src={pokemon.img_url} alt={pokemon.korean_name} />
-            <span>{pokemon.korean_name}</span>
-            <CardNumber> No.{spreadId(pokemon.id)} </CardNumber>
-            <button onClick={() => onRemovePokemon(pokemon.id)}>삭제</button>
+        {selectedPokemons.map((pokemon, index) => (
+          <Main key={index}>
+            <img
+              src={
+                pokemon.id ? pokemon.img_url : "src/assets/img/masterBall.png"
+              }
+              alt={pokemon.korean_name || "빈 포켓몬 볼"}
+            />
+            {pokemon.id ? (
+              <>
+                <span>{pokemon.korean_name}</span>
+                <CardNumber> No.{spreadId(pokemon.id)} </CardNumber>
+                <button onClick={() => onRemovePokemon(pokemon.id)}>
+                  삭제
+                </button>
+              </>
+            ) : (
+              <span>빈 포켓몬 볼</span> // 빈 볼 표시
+            )}
           </Main>
         ))}
       </MainContainer>

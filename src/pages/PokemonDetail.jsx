@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import MOCK_DATA from "../MockData";
 import styled from "styled-components";
 import { usePokemon } from "../context/PokemonContext";
+import { toast } from "react-toastify";
 
 const PokemonDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
   const { addPokemon } = usePokemon();
   const [pokemon, setPokemon] = useState();
 
@@ -22,8 +22,24 @@ const PokemonDetail = () => {
 
   const handleAddBtn = () => {
     if (pokemon) {
-      addPokemon(pokemon);
-      navigate(-1);
+      // 이미 해당 포켓몬이 선택된 상태인지 확인
+      const savedPokemons = localStorage.getItem("selectedPokemons");
+      const selectedPokemons = savedPokemons ? JSON.parse(savedPokemons) : [];
+
+      const isPokemonAdded = selectedPokemons.some(
+        (nowPokemon) => nowPokemon.id === pokemon.id
+      );
+
+      if (isPokemonAdded) {
+        // 이미 추가된 포켓몬이라면 알림 표시
+        toast.error(
+          `${pokemon.korean_name}은 이미 포켓몬 도감에 추가되었습니다!`
+        );
+      } else {
+        // 포켓몬 추가하고 페이지 뒤로 가기
+        addPokemon(pokemon);
+        navigate(-1);
+      }
     }
   };
 
