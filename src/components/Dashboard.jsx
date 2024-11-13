@@ -1,18 +1,30 @@
 import styled from "styled-components"; // styled-components import
 import { usePokemon } from "../context/PokemonContext";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Dashboard = () => {
   const { selectedPokemons, onRemovePokemon } = usePokemon();
+  const [isHovered, setIsHovered] = useState(false);
 
   const spreadId = (id) => {
     return String(id).padStart(3, "0");
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <DashboardContainer>
-      <Title>
-        <StyledLink to="/">포켓몬 도감</StyledLink>
+      <Title onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <StyledLink to="/">
+          {isHovered ? "홈으로 가기" : "포켓몬 도감"}
+        </StyledLink>
       </Title>
 
       <MainContainer>
@@ -33,7 +45,7 @@ const Dashboard = () => {
                 </button>
               </>
             ) : (
-              <></> // 빈 볼 표시
+              <></>
             )}
           </Main>
         ))}
@@ -63,6 +75,11 @@ const Title = styled.h1`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: #fa812f;
+    text-decoration: underline;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -121,5 +138,4 @@ const Main = styled.div`
 
 const CardNumber = styled.h5`
   font-size: 15px;
-  color: gray;
 `;

@@ -27,7 +27,9 @@ export const PokemonProvider = ({ children }) => {
   const addPokemon = (pokemon) => {
     // 이미 선택된 포켓몬인지 확인
     if (selectedPokemons.some((p) => p.id === pokemon.id)) {
-      toast.error(`포켓몬 ${pokemon.korean_name}은 이미 선택되었습니다.`);
+      toast.error(`포켓몬 ${pokemon.korean_name}은 이미 선택되었습니다.`, {
+        autoClose: 2500,
+      });
       return;
     }
 
@@ -40,8 +42,16 @@ export const PokemonProvider = ({ children }) => {
     if (emptySlotIndex !== -1) {
       updatedPokemons[emptySlotIndex] = pokemon;
       setSelectedPokemons(updatedPokemons); // 상태 업데이트
+      toast.success(
+        `포켓몬 ${pokemon.korean_name}이 정상적으로 추가 되었습니다`,
+        {
+          autoClose: 2500,
+        }
+      );
     } else {
-      toast.error("최대 6마리의 포켓몬만 선택할 수 있습니다.");
+      toast.error("최대 6마리의 포켓몬만 선택할 수 있습니다.", {
+        autoClose: 2500,
+      });
     }
   };
 
@@ -68,7 +78,9 @@ export const PokemonProvider = ({ children }) => {
       localStorage.setItem("selectedPokemons", JSON.stringify(updatedPokemons));
     }
 
-    toast.success("포켓몬이 성공적으로 삭제되었습니다.");
+    toast.success("포켓몬이 성공적으로 삭제되었습니다.", {
+      autoClose: 2500,
+    });
   };
 
   // 상태가 변경될 때마다 로컬스토리지에 저장

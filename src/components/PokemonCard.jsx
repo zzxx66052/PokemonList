@@ -53,15 +53,14 @@ const CardImage = styled.img`
 
 const CardTitle = styled.h3`
   font-size: 15px;
-  font-weight: 900;
+  font-weight: 700;
   margin-top: 10px;
-  color: black;
 `;
 
 const CardNumber = styled.h5`
   font-size: 15px;
   color: gray;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 5px;
 `;
 

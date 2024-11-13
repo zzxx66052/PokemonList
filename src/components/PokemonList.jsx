@@ -10,9 +10,9 @@ const PokemonList = ({ pokemonData }) => {
     <AllPokemonList>
       {pokemonData.map((newPokemon) => {
         return (
-          <StyledLink to={`/pokemon/${newPokemon.id}`} key={newPokemon.id}>
+          <StyleLink to={`/pokemon/${newPokemon.id}`} key={newPokemon.id}>
             <PokemonCard pokemon={newPokemon} addPokemon={addPokemon} />
-          </StyledLink>
+          </StyleLink>
         );
       })}
     </AllPokemonList>
@@ -34,6 +34,7 @@ const AllPokemonList = styled.div`
   border-radius: 20px;
 `;
 
-const StyledLink = styled(Link)`
+const StyleLink = styled(Link)`
   text-decoration: none;
+  color: inherit;
 `;
