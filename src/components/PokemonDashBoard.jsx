@@ -31,11 +31,7 @@ const DashBoard = () => {
         {selectedPokemons.map((pokemon, index) => (
           <Main key={index}>
             <img
-              src={
-                pokemon.id
-                  ? pokemon.img_url
-                  : "/src/assets/img/mastball-logo.png"
-              }
+              src={pokemon.id ? pokemon.img_url : "./mastball-logo.png"}
               alt={pokemon.korean_name || "빈 포켓몬 볼"}
             />
             {pokemon.id ? (
