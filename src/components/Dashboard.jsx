@@ -3,7 +3,7 @@ import { usePokemon } from "../context/PokemonContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Dashboard = () => {
+const DashBoard = () => {
   const { selectedPokemons, onRemovePokemon } = usePokemon();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -54,7 +54,7 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashBoard;
 
 // Styled Components 정의
 const DashboardContainer = styled.div`
