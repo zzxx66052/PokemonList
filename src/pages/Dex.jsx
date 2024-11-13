@@ -1,4 +1,4 @@
-import Dashboard from "../components/DashBoard";
+import DashBoard from "../components/DashBoard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../MockData";
 import styled from "styled-components";
@@ -9,7 +9,7 @@ const Dex = () => {
 
   return (
     <BodyRoot>
-      <Dashboard
+      <DashBoard
         selectedPokemons={selectedPokemons}
         removePokemon={onRemovePokemon}
       />
