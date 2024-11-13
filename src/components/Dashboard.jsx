@@ -1,5 +1,6 @@
 import styled from "styled-components"; // styled-components import
 import { usePokemon } from "../context/PokemonContext";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const { selectedPokemons, onRemovePokemon } = usePokemon();
@@ -10,7 +11,9 @@ const Dashboard = () => {
 
   return (
     <DashboardContainer>
-      <Title>포켓몬 도감</Title>
+      <Title>
+        <StyledLink to="/">포켓몬 도감</StyledLink>
+      </Title>
 
       <MainContainer>
         {selectedPokemons.map((pokemon, index) => (
@@ -30,7 +33,7 @@ const Dashboard = () => {
                 </button>
               </>
             ) : (
-              <span>빈 포켓몬 볼</span> // 빈 볼 표시
+              <></> // 빈 볼 표시
             )}
           </Main>
         ))}
@@ -56,6 +59,10 @@ const Title = styled.h1`
   margin: 0;
   color: #fa4032;
   text-align: center;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const MainContainer = styled.div`
@@ -114,4 +121,5 @@ const Main = styled.div`
 
 const CardNumber = styled.h5`
   font-size: 15px;
+  color: gray;
 `;
