@@ -102,11 +102,6 @@ const Main = styled.div`
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
   gap: 10px;
 
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
   img {
     width: 100%;
     height: auto;
@@ -114,7 +109,7 @@ const Main = styled.div`
   }
 
   span {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     margin-top: 10px;
   }
@@ -138,4 +133,5 @@ const Main = styled.div`
 
 const CardNumber = styled.h5`
   font-size: 15px;
+  color: gray;
 `;
