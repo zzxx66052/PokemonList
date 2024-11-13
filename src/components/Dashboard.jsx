@@ -1,9 +1,6 @@
 import styled from "styled-components"; // styled-components import
-import { usePokemon } from "../context/PokemonContext";
 
-const Dashboard = () => {
-  const { selectedPokemons, onRemovePokemon } = usePokemon();
-
+const Dashboard = ({ selectedPokemons, removePokemon }) => {
   const spreadId = (id) => {
     return String(id).padStart(3, "0");
   };
@@ -25,12 +22,10 @@ const Dashboard = () => {
               <>
                 <span>{pokemon.korean_name}</span>
                 <CardNumber> No.{spreadId(pokemon.id)} </CardNumber>
-                <button onClick={() => onRemovePokemon(pokemon.id)}>
-                  삭제
-                </button>
+                <button onClick={() => removePokemon(pokemon.id)}>삭제</button>
               </>
             ) : (
-              <span>빈 포켓몬 볼</span> // 빈 볼 표시
+              <span>빈 포켓몬 볼</span>
             )}
           </Main>
         ))}
@@ -49,13 +44,13 @@ const DashboardContainer = styled.div`
   padding: 20px;
   border-radius: 20px;
   margin: 20px;
-  width: 100%;
 `;
 
 const Title = styled.h1`
   margin: 0;
-  color: #fa4032;
+  font-weight: bold;
   text-align: center;
+  color: red;
 `;
 
 const MainContainer = styled.div`
@@ -65,6 +60,7 @@ const MainContainer = styled.div`
   align-items: flex-start;
   gap: 40px;
   margin-top: 20px;
+  width: 1150px;
 `;
 
 const Main = styled.div`

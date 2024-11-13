@@ -1,9 +1,6 @@
 import styled from "styled-components"; // styled-components import
-import { usePokemon } from "../context/PokemonContext";
 
-const PokemonCard = ({ pokemon }) => {
-  const { addPokemon } = usePokemon();
-
+const PokemonCard = ({ pokemon, addPokemon }) => {
   const spreadId = (id) => {
     return String(id).padStart(3, "0");
   };
@@ -36,7 +33,7 @@ const Card = styled.div`
   background-color: #d4f6ff;
   justify-content: center;
   align-items: center;
-  margin: 20px 20px 20px 20px;
+  margin: 40px 10px 20px 10px;
   border-radius: 10px;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
 
@@ -55,10 +52,14 @@ const CardTitle = styled.h3`
   font-size: 15px;
   font-weight: 700;
   margin-top: 10px;
+  color: black;
 `;
 
 const CardNumber = styled.h5`
   font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: gray;
 `;
 
 const AddButton = styled.button`
