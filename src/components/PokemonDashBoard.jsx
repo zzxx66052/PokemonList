@@ -32,7 +32,7 @@ const DashBoard = () => {
           <Main key={index}>
             <img
               src={
-                pokemon.id ? pokemon.img_url : "../assets/img/masterBall.png"
+                pokemon.id ? pokemon.img_url : "src/assets/img/masterBall.png"
               }
               alt={pokemon.korean_name || "빈 포켓몬 볼"}
             />
