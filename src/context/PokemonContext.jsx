@@ -17,7 +17,7 @@ export const PokemonProvider = ({ children }) => {
       : new Array(6).fill(null).map(() => ({
           id: null,
           name: "",
-          img_url: "src/assets/img/masterBall.png", // 빈 포켓몬 볼 이미지
+          img_url: "../assets/img/masterBall.png", // 빈 포켓몬 볼 이미지
         }));
   };
 
@@ -63,7 +63,7 @@ export const PokemonProvider = ({ children }) => {
             ...pokemon,
             id: null,
             name: "",
-            img_url: "src/assets/img/masterBall.png",
+            img_url: "../assets/img/masterBall.png",
           } // 포켓몬을 초기화하여 빈 볼로 설정
         : pokemon
     );
