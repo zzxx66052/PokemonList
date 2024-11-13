@@ -1,4 +1,4 @@
-import DashBoard from "../components/DashBoard";
+import DashBoard from "../components/PokemonDashBoard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../MockData";
 import styled from "styled-components";
